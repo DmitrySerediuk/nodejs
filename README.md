@@ -6,7 +6,7 @@
 
  ## Short insturction:
 - git clone https://github.com/DmitrySerediuk/nodejs
-- cd {path_to_dirname} ex. cd c:\\nodejs
+- cd {path_to_dirname} ex. cd nodejs
 - npm install 
 - npm run my_caesar_cli -- -a encode -s 7 -i "./task1/files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt" 
 - npm run my_caesar_cli -- --action encode -s 7 -i "./task1/files/input.txt"
@@ -29,7 +29,7 @@ git clone https://github.com/DmitrySerediuk/nodejs
 After download need go to downloaded dir in console
 
 ```
-cd {pat_to_dirname} ex. cd c:\\nodejs
+cd {pat_to_dirname} ex. cd nodejs
 ```
 
 ## Installing NPM modules
