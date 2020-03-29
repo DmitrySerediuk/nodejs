@@ -10,7 +10,7 @@ const ERRORS = {
   NO_ACTION:
     'Error. Correct action parametrs not found. Allow encode/decode parametrs',
   NO_SHIFT: 'Error. Shift not found.',
-  WRONG_SHIFT: 'Error. Shift should be a number.',
+  WRONG_SHIFT: 'Error. Shift should be a positive number.',
   INPUT_FILE_NOT_FOUND: 'Input file not found.',
   OUTPUT_FILE_NOT_FOUND: 'Output file not found.',
   PIPELINE_FILED: 'Pipeline filed.'

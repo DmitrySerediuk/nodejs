@@ -16,7 +16,7 @@ let userArgs = program.opts();
 
 if (userArgs.action !== ALLOW_ACTIONS.ENCODE &&
     userArgs.action !== ALLOW_ACTIONS.DECODE){
-    console.error(ERRORS.NO_ACTION);
+    console.error(ERRORS.NO_ACTION, 6);
     process.exit(ERROR_CODE.INVALID_ARGUMENT);
 }
 
@@ -26,7 +26,8 @@ if (!userArgs.shift) {
 }
 
 userArgs.shift = parseInt(userArgs.shift, 10);
-if (!Number.isInteger(userArgs.shift)) {
+console.log(userArgs.shift);
+if (!Number.isInteger(userArgs.shift) || userArgs.shift<0) {
     console.error(ERRORS.WRONG_SHIFT);
     process.exit(ERROR_CODE.INVALID_ARGUMENT);
 }
