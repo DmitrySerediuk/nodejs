@@ -1,4 +1,18 @@
-# RS School REST service
+# RS School REST Task 1: Ceasar CLI application
+
+## Autor contact:
+ - Discord:    DmitrySerediuk(@k0smm0s) 
+ - Telegram:   @DmitrySerediuk
+
+ ## Short insturction:
+git clone https://github.com/DmitrySerediuk/nodejs
+cd {pat_to_dirname} ex. cd c:\\nodejs
+npm install 
+npm run my_caesar_cli -- -a encode -s 7 -i "./task1/files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt" 
+npm run my_caesar_cli -- --action encode -s 7 -i "./task1/files/input.txt"
+npm run my_caesar_cli -- -a encode -s 7 -i -o "C:\rss\nodejs\task1\files\out.txt" 
+npm run my_caesar_cli -- -a encode -s 7
+npm run my_caesar_cli -- -a decode --shift 7
 
 ## Prerequisites
 
@@ -8,53 +22,77 @@
 ## Downloading
 
 ```
-git clone {repository URL}
+git clone https://github.com/DmitrySerediuk/nodejs
+```
+
+## Prepare terminal
+After download need go to downloaded dir in console
+
+```
+cd {pat_to_dirname} ex. cd c:\\nodejs
 ```
 
 ## Installing NPM modules
 
 ```
-npm install
+npm install 
 ```
 
 ## Running application
 
 ```
-npm start
+npm run my_caesar_cli -- -a encode -s 7 -i "./task1/files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt" 
+OR
+node {path_to_scriptname} -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+ex.
+node task1/index -a encode -s 7 -i "./task1/files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt"
 ```
 
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
-For more information about OpenAPI/Swagger please visit https://swagger.io/.
-
-## Testing
-
-After application running open new terminal and enter:
-
-To test without authorization
-
+## Arguments:
 ```
-npm test
+-a (-- action) Allow type "encode" or "decode". Required option. Crypt or Decrypt message
+ex.
+npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+npm run my_caesar_cli -- -a decode -s 7 -i "./files/input.txt" -o "./files/out.txt" 
 ```
 
-To test with authorization
-
 ```
-npm run test:auth
-```
-
-## Development
-
-If you're using VSCode, you can get a better developer experience from integration with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions.
-
-### Auto-fix and format
-
-```
-npm run lint
+-s (--shift) Shift for crypt/decrypt message. Required option. Should be a number. If it mix with number and sting, where number first - shift will be first number: ex -s 123ab will work like -s 123. -s ab314 or -s dafdf will get error.
+ex.
+npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
 ```
 
-### Debugging in VSCode
+```
+-i (--input) Input file name for encode/decode. If it empty - need write text by console with user frendly interface. If -i given, but file not found or not readable - throw error.
+                - You can use short path or full path for input file(be attention with backslashes):
+                ex.
+                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+                    npm run my_caesar_cli -- -a encode -s 7 -i "C:\rss\nodejs\task1\files\input.txt" -o "./files/out.txt"
 
-Press <kbd>F5</kbd> to debug.
+                - If -i is hide, text write by termial. For crypt/decrypt need write text and push ENTER. For exit: push CTRL+с and ENTER
+                    npm run my_caesar_cli -- -a encode -s 7 -o "./files/out.txt"
+```
 
-For more information, visit: https://code.visualstudio.com/docs/editor/debugging
+```
+-o (--output) Output file name for encode/decode. If it empty - output text write to console with user frendly interface. If -o given, but file not found or not writable - throw error.
+                - You can use short path or full path for output file(be attention with backslashes):
+                ex.
+                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt"
+
+                - If -i is hide, output text write to termial.  For exit: push CTRL+с and ENTER
+                    npm run my_caesar_cli -- -a encode -s 7
+```
+
+## Code stucture:
+    README.md                   : readme file with help
+    - /task1                    : Dir with application files
+        - index.js              : Main run file
+        - constants.js          : It contain messages and user frendly errors and exit button code for exit from console in stdin mode
+        - arguments.js          : Module getting user arguments and validate it
+        - ceasarCrypt.js        : Transform stream class for crypt or decrypt message
+        - ceasarCli.js          : Class for work with pipeline. Prepare input an output and pipe it.
+        - /files                : Dir for input/output user files
+            - /files/input.txt  : Input file with text for encode/decode
+            - /files/out.txt    : Output file for encoded/decodeв text 
+    
