@@ -72,6 +72,9 @@ class CeasarCrypt extends Transform {
         this.push(outputMsg + os.EOL);
       } else {
         this.push(outputMsg);
+        console.log(
+          `Write new text for ${this.act} and push ENTER for process. For exit push CTRL+x and ENTER${os.EOL}`
+        );
       }
     } else {
       let msg = `Input message for ${this.act}: ${chunk.toString()}${this.eol}`;
