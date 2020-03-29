@@ -49,42 +49,42 @@ node task1/index -a encode -s 7 -i "./task1/files/input.txt" -o "C:\rss\nodejs\t
 ```
 
 ## Arguments:
--a (-- action) Allow type "encode" or "decode". Required option. Crypt or Decrypt message
+**-a (-- action)** Allow type "encode" or "decode". Required option. Crypt or Decrypt message
 ex.
 ```
 npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
 npm run my_caesar_cli -- -a decode -s 7 -i "./files/input.txt" -o "./files/out.txt" 
 ```
 
--s (--shift) Shift for crypt/decrypt message. Required option. Should be a number. If it mix with number and sting, where number first - shift will be first number: ex -s 123ab will work like -s 123. -s ab314 or -s dafdf will get error.
+**-s (--shift)** Shift for crypt/decrypt message. Required option. Should be a number. If it mix with number and sting, where number first - shift will be first number: ex -s 123ab will work like -s 123. -s ab314 or -s dafdf will get error.
 ex.
 ```
 npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
 ```
 
--i (--input) Input file name for encode/decode. If it empty - need write text by console with user frendly interface. If -i given, but file not found or not readable - throw error.
-                - You can use short path or full path for input file(be attention with backslashes):
-                ex.
+**-i (--input)** Input file name for encode/decode. If it empty - need write text by console with user frendly interface. If -i given, but file not found or not readable - throw error.
+- You can use short path or full path for input file(be attention with backslashes):
+ex.
 ```
-                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
-                    npm run my_caesar_cli -- -a encode -s 7 -i "C:\rss\nodejs\task1\files\input.txt" -o "./files/out.txt"
+npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+npm run my_caesar_cli -- -a encode -s 7 -i "C:\rss\nodejs\task1\files\input.txt" -o "./files/out.txt"
 ```
 - If -i is hide, text write by termial. For crypt/decrypt need write text and push ENTER. For exit: push CTRL+с and ENTER
 ```
-                   npm run my_caesar_cli -- -a encode -s 7 -o "./files/out.txt"
+npm run my_caesar_cli -- -a encode -s 7 -o "./files/out.txt"
 ```
 
--o (--output) Output file name for encode/decode. If it empty - output text write to console with user frendly interface. If -o given, but file not found or not writable - throw error.
-                - You can use short path or full path for output file(be attention with backslashes):
-                ex.
+**-o (--output)** Output file name for encode/decode. If it empty - output text write to console with user frendly interface. If -o given, but file not found or not writable - throw error.
+- You can use short path or full path for output file(be attention with backslashes):
+ex.
 ```
-                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
-                    npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt"
+npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "./files/out.txt"
+npm run my_caesar_cli -- -a encode -s 7 -i "./files/input.txt" -o "C:\rss\nodejs\task1\files\out.txt"
 ```
 
 - If -i is hide, output text write to termial.  For exit: push CTRL+с and ENTER
 ```
-                    npm run my_caesar_cli -- -a encode -s 7
+npm run my_caesar_cli -- -a encode -s 7
 ```
 
 ## Code stucture:
